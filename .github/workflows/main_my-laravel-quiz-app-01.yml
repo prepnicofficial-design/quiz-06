@@ -67,4 +67,5 @@ jobs:
           app-name: 'my-laravel-quiz-app-01'
           slot-name: 'Production'
           package: .
+
           
