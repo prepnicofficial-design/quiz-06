@@ -43,6 +43,13 @@ return [
             'transaction_mode' => 'DEFERRED',
         ],
 
+    // In config/database.php, within the 'mysql' array:
+'options' => array_filter([
+    // Required for Azure MySQL Flexible Server SSL connection
+    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA', base_path('DigiCertGlobalRootCA.crt.pem')),
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => true,
+]),
+
         'mysql' => [
             'driver' => 'mysql',
             'url' => env('DB_URL'),
